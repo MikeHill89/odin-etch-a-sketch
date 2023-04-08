@@ -1,9 +1,14 @@
 const drawingCanvas = document.querySelector(".container");
 const userColor = '#00ffff';
 const resetButton = document.getElementById('reset');
-const gridSize = 128;
+const gridSize = 100;
 const canvasWidth = drawingCanvas.offsetWidth;
 const squareSize = canvasWidth / gridSize - 2;
+
+const getRandomColor = () => {
+  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  return `#${randomColor}`;
+}
 function drawGrid() {
 
   for (let index = 0; index < gridSize * gridSize; index++) {
@@ -23,7 +28,7 @@ drawGrid();
 
 const squares = document.querySelectorAll('.square');
 function colorSquare() {
-  this.style.backgroundColor = userColor;
+  this.style.backgroundColor = getRandomColor();
 }
 
 function resetGrid() {
