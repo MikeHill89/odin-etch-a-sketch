@@ -8,25 +8,33 @@ h1 {
 .wrapper {
   display: flex;
   margin: 0 auto;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: black;
 }
 .container{
   display: flex;
   flex-wrap: wrap;
   width: 960px;
-  heigth: 960px;
-  background-color: white;
+  heigth:960px;
 }
-
-#reset{
+.buttons-menu{
+  display:flex;
+  align-items: space-between;
+  margin: 0 auto;
+  gap: .5rem;
+}
+button{
   background-color: blue;
+  width: 150px;
   color: white;
-  border: 1px solid yellow;
+  border: 0;
   border-radius: 5px;
   padding: 0.5rem 2rem;
+}
+button:hover{
+  background-color: red;
 }
