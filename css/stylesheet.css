@@ -9,6 +9,7 @@ h1 {
 }
 .wrapper {
   display: flex;
+  heigth: 100vh;
   margin: 0 auto;
   gap: 1rem;
   padding: 2rem;
@@ -22,12 +23,13 @@ h1 {
   flex-wrap: wrap;
   width: 600px;
   heigth:600px;
+  background-color: white;
 }
 .buttons-menu{
   display:flex;
   align-items: space-between;
   margin: 0 auto;
-  gap: .5rem;
+  gap: 1rem;
 }
 button{
   background-color: blue;
