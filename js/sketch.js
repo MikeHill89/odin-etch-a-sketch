@@ -6,13 +6,16 @@ const getRandomColor = () => {
   const randomColor = Math.floor(Math.random() * 16777215).toString(16);
   return `#${randomColor}`;
 }
+let setGridSize = 16;
 const getGridSize = () => {
-  return parseInt(prompt("what grid size do you want"));
+  let newGridSize = parseInt(prompt("what grid size do you want"));
+  setGridSize = newGridSize;
+  return drawGrid();
 };
+
 
 function drawGrid() {
   drawingCanvas.replaceChildren();
-  let setGridSize = getGridSize();
   if (setGridSize > 100 || setGridSize < 16) {
     setGridSize = 0;
     alert("Sorry, you need to have a positive grid of atleast 16 to a maximum of a 100")
@@ -33,7 +36,7 @@ function drawGrid() {
     drawingCanvas.appendChild(gridBlock);
   }
   const squares = document.querySelectorAll('.square');
-  squares.forEach(square => square.addEventListener('mouseover', colorSquare));
+  squares.forEach((square) => square.addEventListener('mouseenter', colorSquare));
 }
 
 function colorSquare() {
@@ -42,10 +45,12 @@ function colorSquare() {
 
 function resetGrid() {
   const squares = document.querySelectorAll('.square');
-  squares.forEach(square => square.style.backgroundColor = "");
+  squares.forEach((square) => {
+    square.style.backgroundColor = "";
+    baseOpacity = 0.1;
+  });
 }
-
+drawGrid();
 
 resetButton.addEventListener('click', resetGrid);
-gridButton.addEventListener('click', drawGrid);
-drawGrid();
+gridButton.addEventListener('click', getGridSize);
