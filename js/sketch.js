@@ -11,7 +11,6 @@ let setGridSize = 16;
 const getGridSize = () => {
   let newGridSize = parseInt(prompt("what grid size do you want"));
   if (newGridSize < 16 || newGridSize > 100) {
-    setGridSize= 0;
     alert("Minimum gridsize is 16 and max 100");
     getGridSize();
   } else {
