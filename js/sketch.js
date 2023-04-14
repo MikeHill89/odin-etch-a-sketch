@@ -19,7 +19,7 @@ function drawGrid() {
   if (setGridSize > 100 || setGridSize < 16) {
     setGridSize = 0;
     alert("Sorry, you need to have a positive grid of atleast 16 to a maximum of a 100")
-    drawGrid();
+    getGridSize();
   }
   const canvasWidth = drawingCanvas.offsetWidth;
   const squareSize = (canvasWidth / setGridSize) - 2;
