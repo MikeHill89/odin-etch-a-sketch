@@ -7,20 +7,22 @@ const getRandomColor = () => {
   return `#${randomColor}`;
 }
 let setGridSize = 16;
+
 const getGridSize = () => {
   let newGridSize = parseInt(prompt("what grid size do you want"));
+  if (newGridSize < 16 || newGridSize > 100) {
+    setGridSize= 0;
+    alert("Minimum gridsize is 16 and max 100");
+    getGridSize();
+  } else {
   setGridSize = newGridSize;
   return drawGrid();
+  }
 };
 
 
 function drawGrid() {
   drawingCanvas.replaceChildren();
-  if (setGridSize > 100 || setGridSize < 16) {
-    setGridSize = 0;
-    alert("Sorry, you need to have a positive grid of atleast 16 to a maximum of a 100")
-    getGridSize();
-  }
   const canvasWidth = drawingCanvas.offsetWidth;
   const squareSize = (canvasWidth / setGridSize) - 2;
 
