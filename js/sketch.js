@@ -18,20 +18,21 @@ const getGridSize = () => {
     return drawGrid();
   }
 };
-  
+
 
 function drawGrid() {
   drawingCanvas.replaceChildren();
   const canvasWidth = drawingCanvas.offsetWidth;
-  const squareSize = ((100 / setGridSize) * canvasWidth / 100) - 2;
-
+  const squareSize = Math.floor(((100 / setGridSize) * canvasWidth / 100) - 2);
 
   for (let index = 0; index < setGridSize * setGridSize; index++) {
     const gridBlock = document.createElement("div");
     gridBlock.classList.add("square");
     gridBlock.style.width = `${squareSize}px`;
     gridBlock.style.margin = '0px';
+    gridBlock.style.flexGrow = 1;
     gridBlock.style.padding = '0px';
+    gridBlock.style.gap = '0px';
     gridBlock.style.height = `${squareSize}px`;
     gridBlock.style.border = '1px solid lightgrey';
     gridBlock.style.backgroundColor = '#ffffff';
