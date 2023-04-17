@@ -14,16 +14,17 @@ const getGridSize = () => {
     alert("Minimum gridsize is 16 and max 100");
     getGridSize();
   } else {
-  setGridSize = newGridSize;
-  return drawGrid();
+    setGridSize = newGridSize;
+    return drawGrid();
   }
 };
-
+  
 
 function drawGrid() {
   drawingCanvas.replaceChildren();
   const canvasWidth = drawingCanvas.offsetWidth;
-  const squareSize = (canvasWidth / setGridSize) - 2;
+  const squareSize = ((100 / setGridSize) * canvasWidth / 100) - 2;
+
 
   for (let index = 0; index < setGridSize * setGridSize; index++) {
     const gridBlock = document.createElement("div");
