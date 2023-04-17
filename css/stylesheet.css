@@ -21,8 +21,8 @@ h1 {
 .container{
   display: flex;
   flex-wrap:wrap;
-  width: 960px;
-  max-height: 960px;
+  width: 640px;
+  max-height: 640px;
   background-color: white;
 }
 .buttons-menu{
