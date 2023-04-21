@@ -1,4 +1,5 @@
 const drawingCanvas = document.querySelector(".container");
+const canvasSize = drawingCanvas.offsetWidth;
 const userColor = '#00ffff';
 const resetButton = document.getElementById('reset');
 const gridButton = document.getElementById('gridsize');
@@ -15,33 +16,32 @@ const getGridSize = () => {
     getGridSize();
   } else {
     setGridSize = newGridSize;
-    return drawGrid();
+    return drawGrid(setGridSize);
   }
 };
 
-
-function drawGrid() {
+function drawGrid(gridsize) {
   drawingCanvas.replaceChildren();
-  const canvasWidth = drawingCanvas.offsetWidth;
-  const squareSize = Math.floor(((100 / setGridSize) * canvasWidth / 100) - 2);
-
-  for (let index = 0; index < setGridSize * setGridSize; index++) {
-    const gridBlock = document.createElement("div");
-    gridBlock.classList.add("square");
-    gridBlock.style.width = `${squareSize}px`;
-    gridBlock.style.margin = '0px';
-    gridBlock.style.flexGrow = 1;
-    gridBlock.style.padding = '0px';
-    gridBlock.style.gap = '0px';
-    gridBlock.style.height = `${squareSize}px`;
-    gridBlock.style.border = '1px solid lightgrey';
-    gridBlock.style.backgroundColor = '#ffffff';
-    drawingCanvas.appendChild(gridBlock);
+  for (let i = 0; i < gridsize; i++) {
+    const row = document.createElement('div');
+    row.classList.add('row');
+    row.style.display = 'flex';
+    row.style.width = `${canvasSize}px`;
+    row.style.height = `${canvasSize / gridsize}px`;
+    row.style.backgroundColor = '#FFFFFF';
+    for (let j = 0; j < gridsize; j++) {
+      const cell = document.createElement('div');
+      cell.classList.add('square');
+      cell.style.flexGrow = '1';
+      cell.style.width = '100%';
+      cell.style.border = '1px solid lightgrey';
+      row.appendChild(cell);
+    }
+    drawingCanvas.appendChild(row);
+    const squares = document.querySelectorAll('.square');
+    squares.forEach((square) => square.addEventListener('mouseover', colorSquare));
   }
-  const squares = document.querySelectorAll('.square');
-  squares.forEach((square) => square.addEventListener('mouseenter', colorSquare));
 }
-
 function colorSquare() {
   this.style.backgroundColor = getRandomColor();
 }
@@ -50,10 +50,9 @@ function resetGrid() {
   const squares = document.querySelectorAll('.square');
   squares.forEach((square) => {
     square.style.backgroundColor = "";
-    baseOpacity = 0.1;
   });
 }
-drawGrid();
+drawGrid(setGridSize);
 
 resetButton.addEventListener('click', resetGrid);
 gridButton.addEventListener('click', getGridSize);
