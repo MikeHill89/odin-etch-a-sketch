@@ -2,13 +2,13 @@
 
 Live version can be found here: https://mikehill89.github.io/odin-etch-a-sketch/
 
-#What did I learn?
+# What did I learn?
 
 - Using JavaScript to manipulate the Document Object Model (DOM)
 - Creating interactive web pages with dynamic content
 - Handling user events, such as key presses and mouse events
 - Updating the styles of HTML elements with CSS classes and inline styles
-- Organizing your code into reusable functions and variables
+- Organizing code into reusable functions and variables
 - Writing clean, well-structured code
 - Debugging and troubleshooting code
 - Using Git and version control to manage code changes
