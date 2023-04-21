@@ -1,8 +1,8 @@
-# odin-etch-a-sketch Project: Etch-a-Sketch from The Odin Project
+# Project: Etch-a-Sketch from The Odin Project
 
 Live version can be found here: https://mikehill89.github.io/odin-etch-a-sketch/
 
-# What did I learn?
+## What did I learn?
 
 - Using JavaScript to manipulate the Document Object Model (DOM)
 - Creating interactive web pages with dynamic content
