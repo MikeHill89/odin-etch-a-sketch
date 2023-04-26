@@ -10,10 +10,18 @@
 
 <body>
   <div class="wrapper">
-    <h1>Etch a Sketch</h1>
-    <div class="buttons-menu">
-      <button id="reset" type="button">Erase</button>
-      <button id="gridsize" type="button">Grid Size</button>
+    <div class="left">
+      <h1>Etch a Sketch</h1>
+      <div class="color-picker-wrapper">
+        <div><label for="color-picker">Color</label>
+          <input type="color" id="color-picker">
+        </div>
+        <button id="gridsize" type="button">Grid Size</button>
+        <button id="reset" type="button">Erase</button>
+        <div><label for="rainbow-color">Rainbow?</label>
+          <input type="checkbox" id="rainbow-color">
+        </div>
+      </div>
     </div>
     <div class="container">
     </div>
